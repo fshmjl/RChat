@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>extendId</key>
+		<string>1</string>
+		<key>name</key>
+		<string>照片</string>
+		<key>imageName</key>
+		<string>icon_inputBox_more_photo</string>
+	</dict>
+	<dict>
+		<key>extendId</key>
+		<string>2</string>
+		<key>name</key>
+		<string>拍摄</string>
+		<key>imageName</key>
+		<string>icon_inputBox_more_take_photo</string>
+	</dict>
+	<dict>
+		<key>extendId</key>
+		<string>3</string>
+		<key>name</key>
+		<string>云邮</string>
+		<key>imageName</key>
+		<string>icon_inputBox_more_mail</string>
+	</dict>
+	<dict>
+		<key>extendId</key>
+		<string>4</string>
+		<key>name</key>
+		<string>电话</string>
+		<key>imageName</key>
+		<string>icon_inputBox_more_mobile</string>
+	</dict>
+</array>
+</plist>
