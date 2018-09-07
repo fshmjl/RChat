@@ -34,7 +34,6 @@
 #import "KInputBoxViewCtrl.h"
 #import "KConversationModel.h"
 #import "KPhotoPreviewModel.h"
-//#import "KInteractionWrapper.h"
 #import "KVideoViewController.h"
 #import "KInputBoxRecorderView.h"
 #import "KChatTextTableViewCell.h"
@@ -43,9 +42,6 @@
 #import "KChatImageTableViewCell.h"
 #import "KChatVideoTableViewCell.h"
 #import "TZImagePickerController.h"
-//#import "KWriteMailViewController.h"
-//#import "KMailDetailsViewController.h"
-//#import "KContactsDetailsViewController.h"
 
 @interface KChatViewController () <KInputBoxViewCtrlDelegate, TZImagePickerControllerDelegate, KPhotoBrowserDelegate, KPhotoBrowserDatasource, UITableViewDelegate, UITableViewDataSource>
 {
