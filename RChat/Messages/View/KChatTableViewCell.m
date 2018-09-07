@@ -302,7 +302,7 @@
         self.localMessageId = messageId;
         self.messageSendStatusImageView.hidden = sendState == KMessageSendStatusSendSuccess;
         UIImage *image = nil;
-        if (_messageModel.direction == KMessageSenderTypeReceiver) {
+        if (self.messageModel.direction == KMessageSenderTypeReceiver) {
             self.messageSendStatusImageView.image = image;
             return;
         }

@@ -256,34 +256,13 @@
 // 获取会话成员邮箱
 - (void)getConversationMail {
     
-//    kWeakSelf
-//    dispatch_async(defaultQueue, ^{
-        // 获取会话成员邮箱
-//        [KInteractionWrapper getConversationMemberMailWithConversationId:_conversation.conversationId block:^(NSDictionary *info, int errorCode, NSString *errorMsg) {
-//
-//            if (!errorCode)
-//            {
-//                weakSelf.toAddressArray = info[@"address"];
-//                weakSelf.phoneNumber    = info[@"mobile"];
-//            }
-//        }];
-//    });
 }
 
 /**
  更新本地当前会话为已读消息
  */
-- (void)updateMessageReadState
-{
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        // 将该会话的所有未读消息标记为已读 (本地数据库)
-//        [KInteractionWrapper messageReadStatusWithConversationId:_conversation.conversationId block:^(id obj, int errorCode, NSString *errorMsg) {
-//
-//            if (!errorCode) {
-//                unreadMsgCount = 0;
-//            }
-//        }];
-//    });
+- (void)updateMessageReadState {
+    
 }
 
 /**
