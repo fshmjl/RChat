@@ -51,8 +51,6 @@
 @property (nonatomic, strong) KSearchMessageViewController *searchCtrl;
 @property (nonatomic, strong) UIView             *titleView;
 @property (nonatomic, strong) UIView             *bottomLine;
-// 当有权限查看访客时需要用到
-@property (nonatomic, strong) UISegmentedControl *segmentCtrl;
 // 收到的json消息
 @property (nonatomic, strong) NSString           *receiveJson;
 // 记录正在聊天的会话
@@ -67,21 +65,6 @@
 @end
 
 @implementation KMessagesViewController
-
-- (UISegmentedControl *)segmentCtrl {
-    if (!_segmentCtrl) {
-        _segmentCtrl = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, MSWIDTH, 44)];
-        [_segmentCtrl insertSegmentWithTitle:_segmentDataSource[0] atIndex:0 animated:NO];
-        [_segmentCtrl insertSegmentWithTitle:_segmentDataSource[1] atIndex:1 animated:NO];
-        _segmentCtrl.backgroundColor = [UIColor clearColor];
-        _segmentCtrl.tintColor       = [UIColor clearColor];
-        _segmentCtrl.selectedSegmentIndex = 0;
-        [_segmentCtrl setTitleTextAttributes:@{NSForegroundColorAttributeName:KHex16Color1, NSFontAttributeName:[UIFont systemFontOfSize:16]} forState:UIControlStateNormal];
-        [_segmentCtrl setTitleTextAttributes:@{NSForegroundColorAttributeName:kSegmentItemColor, NSFontAttributeName:[UIFont systemFontOfSize:16]} forState:UIControlStateSelected];
-        [_segmentCtrl addTarget:self action:@selector(segmentCtrlSelectAction:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _segmentCtrl;
-}
 
 - (NSMutableArray *)dataSource {
     if (!_dataSource) {
@@ -134,16 +117,9 @@
     _bottomLine.center = CGPointMake(MSWIDTH/4., 42);
     _bottomLine.backgroundColor = kSegmentItemColor;
     [_titleView addSubview:_bottomLine];
-#warning 用户权限判断
-    if (isOnlyMessage) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-        self.navigationController.title = @"消息";
-    }
-    else {
-        selectedIndex = 0;
-        [_titleView addSubview:self.segmentCtrl];
-        self.navigationItem.titleView = self.titleView;
-    }
+
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationController.title = @"消息";
     
     _tableView                 = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _tableView.delegate        = self;
@@ -281,57 +257,22 @@
 }
 
 - (void)updateTitle {
-    
-//    kWeakSelf;
-//    [KInteractionWrapper getAllMessageUnreadNumWithBlock:^(id obj, int errorCode, NSString *errorMsg) {
-//        if (!errorCode) {
-//            weakSelf.badgeNumber = [obj integerValue];
-//        }
-//    }];
-    
-#warning 用户权限判断
-    if (isOnlyMessage) {
-        // 更新未读数量
-        if (_badgeNumber)
-        {
-            self.navigationItem.title  = [NSString stringWithFormat:@"消息(%ld)", (long)_badgeNumber];
-        }
-        else
-        {
-            self.navigationItem.title = @"消息";
-        }
-        
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        [dic setObject:[NSString stringWithFormat:@"%ld", (long)_badgeNumber] forKey:@"badgeNumber"];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateBadgeNumber" object:nil userInfo:dic];
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:_badgeNumber];
+    // 更新未读数量
+    if (_badgeNumber)
+    {
+        self.navigationItem.title  = [NSString stringWithFormat:@"消息(%ld)", (long)_badgeNumber];
     }
-    else {
-        if (self.segmentCtrl.selectedSegmentIndex != selectedIndex) {
-            [self updateSegmentDataSource];
-        }
+    else
+    {
+        self.navigationItem.title = @"消息";
     }
-}
-
-// 更新分段控制器上的数据
-- (void)updateSegmentDataSource {
-    [self.segmentCtrl removeAllSegments];
-    [self.segmentDataSource removeAllObjects];
     
-    [self.segmentCtrl insertSegmentWithTitle:self.segmentDataSource[0] atIndex:0 animated:NO];
-    [self.segmentCtrl insertSegmentWithTitle:self.segmentDataSource[1] atIndex:1 animated:NO];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[NSString stringWithFormat:@"%ld", (long)_badgeNumber] forKey:@"badgeNumber"];
     
-    self.segmentCtrl.selectedSegmentIndex = selectedIndex;
-    [self.segmentCtrl setTitleTextAttributes:@{NSForegroundColorAttributeName:kSegmentItemColor, NSFontAttributeName:[UIFont systemFontOfSize:16]} forState:UIControlStateSelected];
-    
-    NSString *currentShowStr = self.segmentDataSource[selectedIndex];
-    CGSize currentShowSize = [currentShowStr sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}];
-    [UIView animateWithDuration:0.5 animations:^{
-        self.bottomLine.mj_w = currentShowSize.width;
-        CGFloat originX = selectedIndex ? MSWIDTH / 4. * 3 : MSWIDTH / 4.;
-        self.bottomLine.center = CGPointMake(originX, 42);
-    }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateBadgeNumber" object:nil userInfo:dic];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:_badgeNumber];
+  
 }
 
 #pragma mark 收到邮件消息
@@ -462,26 +403,6 @@
     [self.tableView reloadData];
 }
 
-- (void)segmentCtrlSelectAction:(UISegmentedControl *)segmentControl {
-    
-    selectedIndex = segmentControl.selectedSegmentIndex;
-    NSString *currentShowStr = self.segmentDataSource[self.segmentCtrl.selectedSegmentIndex];
-    CGSize currentShowSize = [currentShowStr sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}];
-    
-    if (segmentControl.selectedSegmentIndex) {
-        [UIView animateWithDuration:0.5 animations:^{
-            self.bottomLine.mj_w = currentShowSize.width;
-            _bottomLine.center = CGPointMake(MSWIDTH/4.*3, 42);
-        }];
-    }
-    else {
-        [UIView animateWithDuration:0.5 animations:^{
-            self.bottomLine.mj_w = currentShowSize.width;
-            _bottomLine.center = CGPointMake(MSWIDTH/4., 42);
-        }];
-    }
-}
-
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource.count;
@@ -547,14 +468,9 @@
     chatCtrl.title                      = conversation.conversationName;
     chatCtrl.hidesBottomBarWhenPushed   = YES;
     chatCtrl.conversation               = conversation;
-    chatCtrl.toUserId                   = conversation.toUserId;
-    chatCtrl.lastMsgId                  = @"0";
+
     chatCtrl.isConversationInto         = YES;
 
-    NSInteger unreadNum = _badgeNumber - conversation.badgeNumber;
-    unreadNum = unreadNum <= 0 ? 0 : unreadNum;
-
-    chatCtrl.badgeNumber                = [NSString stringWithFormat:@"%ld", unreadNum];
     [self.navigationController pushViewController:chatCtrl animated:YES];
 }
 

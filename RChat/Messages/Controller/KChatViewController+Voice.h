@@ -19,6 +19,8 @@
 @property (nonatomic, assign) NSInteger       recordStatus;              /**录音状态*/
 @property (nonatomic, assign) NSInteger       recordIndexPathRow;        /**当前正在录音的索引*/
 @property (nonatomic, strong) KMessageModel   *prevMessage;              /**前一条消息*/
+@property (nonatomic, strong) UIImageView     *voiceImageView;           /**语音图片*/
+@property (nonatomic, strong) AVAudioPlayer   *audioPlayer;              /**音频播放器*/
 @property (nonatomic, strong) KInputBoxRecorderView *recordView;         /**录音提示框*/
 
 /**

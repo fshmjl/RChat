@@ -87,6 +87,10 @@
 @property (nonatomic, strong) UIButton               *backBut;
 /**手机号*/
 @property (nonatomic, strong) NSString               *phoneNumber;
+// 输入框控制器
+@property (nonatomic, strong) KInputBoxViewCtrl      *inputBoxCtrl;
+
+@property (nonatomic, strong) NSArray                *imageDatas;
 
 @end
 
@@ -131,26 +135,12 @@
 
 - (void)initBackItemTitle {
     
-    NSString *unreadMsg;
-    if (_isConversationInto)
-    {
-        if (![self.badgeNumber isEqualToString:@"0"] && ![self.badgeNumber isEqual:[NSNull null]] && self.badgeNumber) {
-            unreadMsg = [NSString stringWithFormat:@"消息(%@)", self.badgeNumber];
-        }
-        else {
-            unreadMsg = @"消息";
-        }
-    }
-    else {
-        unreadMsg = @"返回";
-    }
-    
     backBut = [UIButton buttonWithType:UIButtonTypeCustom];
     backBut.frame = CGRectMake(0, 0, 80, 44);
     backBut.contentEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
     backBut.titleLabel.font = [UIFont systemFontOfSize:14];
     [backBut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [backBut setTitle:unreadMsg forState:UIControlStateNormal];
+    [backBut setTitle:@"消息" forState:UIControlStateNormal];
     [backBut setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
     [backBut addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     backBut.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -163,7 +153,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRowHeight:) name:@"updateRowHeight" object:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kConversationCommonNot object:nil userInfo:@{@"notType":@(KConversationCommonNotificationUpdateBedgeNumber), @"conversationId":_conversation.conversationId}];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[self.badgeNumber integerValue]];
     
     self.listView                 = [[UITableView alloc] initWithFrame:CGRectMake(0, kStatusBarAndNavigationBarHeight, MSWIDTH, self.view.mj_h - kStatusBarAndNavigationBarHeight - kTabbarHeight) style:UITableViewStylePlain];
     self.listView.delegate        = self;
@@ -225,7 +214,6 @@
     isFirstLoad     = YES;
     _dataSource     = [NSMutableArray array];
     _allImageDatas  = [NSMutableArray array];
-    self.moveHeight = INPUT_BOX_HEIGHT;
 
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"changeSelection"];
 
@@ -233,7 +221,7 @@
     // 获取会话成员邮箱
     [self getConversationMail];
     // 获取会话消息
-    [self getMessagesDataWithMessageId:_lastMsgId];
+    [self getMessagesDataWithMessageId:@"0"];
 }
 
 // 有未读消息时通知服务器，这些消息已被标记为已读
@@ -246,8 +234,6 @@
         if (unreadMsgCount)
         {
             [weakSelf updateMessageReadState];
-            
-//            [KInteractionWrapper getLastUnMailMessageIdWithConversationId:_conversation.conversationId block:^(id obj, int errorCode, NSString *errorMsg) { }];
         }
     });
     
@@ -426,37 +412,7 @@
                      indexPath:(NSIndexPath *)indexPath
 {
     if (jsonStr) {
-        
-//        kWeakSelf
-//        [KInteractionWrapper sendJsonMessage:jsonStr sendResult:^(id obj, int errorCode, NSString *errorMsg) {
-//
-//            NSString *serverMessageId = @"";
-//            int msgSendStatus         = errorCode == 0 ? KMessageSendStatusSendSuccess : KMessageSendStatusSendFailure;
-//
-//            if (!errorCode)
-//            {
-//                NSDictionary *resultDic = (NSDictionary *)obj;
-//                serverMessageId         = [NSString stringWithFormat:@"%@", resultDic[@"messageId"]];
-//            }
-//            else
-//            {
-//                NSLog(@"发送消息错误码：%d, 错误信息:%@",errorCode, errorMsg);
-//            }
-//
-//            if (!serverMessageId || !serverMessageId.length) {
-//                serverMessageId = localMessageId;
-//            }
-//
-//            // 更新cell视图中的发送状态
-//            [weakSelf updateMessageSendStatus:msgSendStatus
-//                                    indexPath:indexPath
-//                               localMessageId:localMessageId
-//                                 serversMsgId:serverMessageId];
-//
-//            [weakSelf updateDatabaseMessageWithSrcId:localMessageId
-//                                              destId:serverMessageId
-//                                           sendState:msgSendStatus];
-//        }];
+ 
     }
 }
 
@@ -471,12 +427,7 @@
                                 destId:(NSString *)destId
                              sendState:(int)sendState
 {
-//    dispatch_async(updateStatusQueue, ^{
-//        [sendMessage lock];
-//        [KInteractionWrapper updateDatabaseMessageWithSrcId:srcId destId:destId sendState:sendState block:^(id obj, int errorCode, NSString *errorMsg) {
-//            [sendMessage unlock];
-//        }];
-//    });
+    
 }
 
 /**
@@ -484,103 +435,7 @@
  */
 - (void)receivedNewMessage:(NSNotification *)notification
 {
-//    [reveiceMessageLock lock];
-//    kWeakSelf
-//    dispatch_async(receiveMessageQueue, ^{
-//        // 标记未读消息为已读
-//        [weakSelf updateMessageReadState];
-//        // 标记最新接收的消息为已读
-//        [KInteractionWrapper getLastUnMailMessageIdWithConversationId:_conversation.conversationId block:^(id obj, int errorCode, NSString *errorMsg) {
-//
-//            [KInteractionWrapper getAllMessageUnreadNumWithBlock:^(id obj, int errorCode, NSString *errorMsg) {
-//                if (!errorCode) {
-//                    if (![obj isEqualToString:@"0"]) {
-//                        NSString *unreadMsg = [NSString stringWithFormat:@"消息(%@)", obj];
-//                        dispatch_async(dispatch_get_main_queue(), ^{
-//                            [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[obj integerValue]];
-//                            [backBut setTitle:unreadMsg forState:UIControlStateNormal];
-//                        });
-//                    }
-//                }
-//            }];
-//        }];
-//
-//        NSDictionary *newMessage = notification.userInfo;
-//        NSString *messageId = [NSString stringWithFormat:@"%@",newMessage[@"messageId"]];
-//        if ([messageId isEqualToString:@"-1"])
-//        {
-//            // 发送邮件消息，重新刷新界面
-//            isFirstLoad = YES;
-//            [weakSelf.dataSource removeAllObjects];
-//            [weakSelf getMessagesDataWithMessageId:0];
-//            [reveiceMessageLock unlock];
-//        }
-//        else
-//        {
-//            NSData *imageData   = newMessage[@"imageData"];
-//            CGSize  messageSize = [newMessage[@"messageSize"] CGSizeValue];
-//
-//            dispatch_async(defaultQueue, ^{
-//                // 获取会话消息
-//                [KInteractionWrapper getMessageWithMessageId:messageId block:^(KMessageModel *messageModel, int errorCode, NSString *errorMsg) {
-//                    if (!errorCode && messageModel) {
-//                        BOOL isSelfCtrl = [[weakSelf.navigationController.viewControllers lastObject] isEqual:weakSelf];
-//                        if ([newMessage[@"conversationId"] isEqualToString:_conversation.conversationId] && isSelfCtrl) {
-//
-//                            BOOL isShowTime = [weakSelf isShowTimeWithNewMessageModel:messageModel previousMessage:[weakSelf lastMessage]];
-//                            messageModel.showMessageTime = isShowTime;
-//                            messageModel.fileData    = imageData ? imageData : nil;
-//
-//                            CGFloat showTimeHeight = isShowTime ? SHOW_MESSAGE_TIME_HEIGHT : 0;
-//
-//                            messageModel.cellHeight  += showTimeHeight;
-//                            messageModel.messageSize = messageSize;
-//
-//                            if (messageModel.msgType == KMessageTypeImage || messageModel.msgType == KMessageTypeVideo)
-//                            {
-//                                KPhotoPreviewModel *photoModel = [KPhotoPreviewModel new];
-//                                if (messageModel.fileData) {
-//                                    photoModel.content   = messageModel.fileData;
-//                                }
-//                                else {
-//                                    photoModel.content   = messageModel.content;
-//                                }
-//                                photoModel.messageId = messageModel.messageId;
-//                                [weakSelf.allImageDatas addObject:photoModel];
-//                            }
-//
-//                            dispatch_async(dispatch_get_main_queue(), ^{
-//                                [_dataSource addObject:messageModel];
-//
-//                                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_dataSource.count - 1 inSection:0];
-//                                [_listView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:0];
-//
-//                                NSArray *indexPaths = [_listView indexPathsForVisibleRows];
-//                                NSIndexPath *lastIndexPath = [indexPaths lastObject];
-//                                // 忽略高度
-//                                CGFloat ignoreHeight = 0;
-//                                for (NSUInteger i = lastIndexPath.row; i < _dataSource.count; i ++) {
-//                                    KMessageModel *messageModel = _dataSource[i];
-//                                    ignoreHeight += messageModel.cellHeight;
-//                                    if (ignoreHeight > 300) {
-//                                        break;
-//                                    }
-//                                }
-//
-//                                if (ignoreHeight <= 300) {
-//                                    [weakSelf scrollTableViewBottom];
-//                                }
-//                            });
-//                        }
-//                        [reveiceMessageLock unlock];
-//                    }
-//                    else {
-//                        [reveiceMessageLock unlock];
-//                    }
-//                }];
-//            });
-//        }
-//    });
+
 }
 
 - (void)updateRowHeight:(NSNotification *)notification {
@@ -746,16 +601,6 @@
 
 - (void)intoMailDetailWithMessageModel:(KMessageModel *)messageModel {
 
-//    KMailModel *mailModel   = [KMailModel new];
-//    mailModel.Id            = messageModel.emailId;
-    
-//    KMailDetailsViewController *mailDetail = [KMailDetailsViewController new];
-//    mailDetail.folder            = @"INBOX";
-//    mailDetail.folderType        = 0;
-//    mailDetail.currentIndex      = 0;
-//    mailDetail.messageArray      = @[mailModel];
-//    mailDetail.isMailMessageOpen = YES;
-//    [self.navigationController pushViewController:mailDetail animated:YES];
 }
 
 - (void)scrollTableViewBottom
@@ -848,9 +693,6 @@
 - (void)chatTableViewCell:(id)tableViewCell clickAvatarImageViewMessageModel:(KMessageModel *)messageModel {
     
     [self updateViewFrame];
-//    KContactsDetailsViewController *contactsDetail = [KContactsDetailsViewController new];
-//    contactsDetail.xiniuId = messageModel.fromUserId;
-//    [self.navigationController pushViewController:contactsDetail animated:YES];
 }
 
 /**

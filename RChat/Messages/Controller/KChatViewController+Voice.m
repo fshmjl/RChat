@@ -29,10 +29,12 @@ static char *audioUrlKey        = "audioUrl";
 static char *recordViewKey      = "recordView";
 static char *recordTimeKey      = "recordTime";
 static char *prevMessageKey     = "prevMessage";
+static char *audioPlayerKey     = "audioPlayer";
 static char *audioSessionKey    = "audioSession";
 static char *recordStatusKey    = "recordStatus";
 static char *audioRecorderKey   = "audioRecorder";
 static char *recordSettingKey   = "recordSetting";
+static char *voiceImageViewKey  = "voiceImageView";
 static char *recordIndexPathRowKey = "recordIndexPathRow";
 
 - (void)setRecordTime:(CGFloat)recordTime {
@@ -123,6 +125,23 @@ static char *recordIndexPathRowKey = "recordIndexPathRow";
     }
     return recordView;
 }
+
+- (void)setVoiceImageView:(UIImageView *)voiceImageView {
+    objc_setAssociatedObject(self, voiceImageViewKey, voiceImageView, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (UIImageView *)voiceImageView {
+    return objc_getAssociatedObject(self, voiceImageViewKey);
+}
+
+- (void)setAudioPlayer:(AVAudioPlayer *)audioPlayer {
+    objc_setAssociatedObject(self, audioPlayerKey, audioPlayer, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (AVAudioPlayer *)audioPlayer {
+    return objc_getAssociatedObject(self, audioPlayerKey);
+}
+
 
 // KVO 监听录音状态变化
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {

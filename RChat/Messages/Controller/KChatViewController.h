@@ -19,41 +19,20 @@
 
 @interface KChatViewController : BaseViewController<AVAudioPlayerDelegate>
 // 进入聊天页面需要发送正处于发送状态的消息
-@property (nonatomic, assign) BOOL                    isEnterSend;
-@property (nonatomic, assign) BOOL                    canceled;
-// 需要移动的高度
-@property (nonatomic, assign) CGFloat                 moveHeight;
+@property (nonatomic, assign) BOOL               isEnterSend;
+@property (nonatomic, assign) BOOL               canceled;
 // 消息列表
-@property (nonatomic, strong) UITableView             *listView;
+@property (nonatomic, strong) UITableView        *listView;
 // 记录图片和视频数据
-@property (nonatomic, strong) NSMutableArray          *allImageDatas;
+@property (nonatomic, strong) NSMutableArray     *allImageDatas;
 // 数据源
-@property (nonatomic, strong) NSMutableArray          *dataSource;
-// 输入框控制器
-@property (nonatomic, strong) KInputBoxViewCtrl       *inputBoxCtrl;
-// 自己发送的最后一条语音的URL
-@property (nonatomic, strong) NSURL                   *lastAudioUrl;
-
-@property (nonatomic, strong) NSArray                 *imageDatas;
+@property (nonatomic, strong) NSMutableArray     *dataSource;
 // 会话
-@property (nonatomic, strong) KConversationModel      *conversation;
-// 最后一条消息的消息id
-@property (nonatomic, copy) NSString                  *lastMsgId;
-// 接收者的犀牛id
-@property (nonatomic, copy) NSString                  *toUserId;
-// 未读消息数
-@property (nonatomic, copy) NSString                  *badgeNumber;
-
+@property (nonatomic, strong) KConversationModel *conversation;
 // 是否是从会话页面进入
-@property (nonatomic, assign) BOOL                    isConversationInto;
-// 语音图片
-@property (nonatomic, strong) UIImageView            *voiceImageView;
-// 音频播放器
-@property (nonatomic, strong) AVAudioPlayer          *audioPlayer;
+@property (nonatomic, assign) BOOL               isConversationInto;
 // 最后播放的语音URL的Index
-@property (nonatomic, assign) NSInteger              lastPlayVoiceIndex;
-// 语音消息id
-@property (nonatomic, copy) NSString                 *voiceMessageId;
+@property (nonatomic, assign) NSInteger          lastPlayVoiceIndex;
 
 // 重新刷新数据
 - (void)reloadData;

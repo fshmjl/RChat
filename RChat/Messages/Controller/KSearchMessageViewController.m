@@ -10,11 +10,8 @@
 
 #import "NSDictionary+Json.h"
 
-//#import "KContactsModel.h"
-//#import "KPlaceholderView.h"
 #import "KConversationModel.h"
 #import "KChatViewController.h"
-//#import "KContactsTableViewCell.h"
 #import "KMessagesListTableViewCell.h"
 
 
@@ -53,8 +50,6 @@ static NSString *const cellIdentifier = @"kCellIdentifier";
     [self.view addSubview:_listView];
     
     _listView.sd_layout.topSpaceToView(self.searchBar, 0).leftEqualToView(self.view).rightEqualToView(self.view).bottomEqualToView(self.view);
-    
-    //_placeholderView = [[KPlaceholderView alloc] initWithFrame:_listView.bounds descStr:@"找不到任何相关内容!"];
 }
 
 - (void)initData {
@@ -85,14 +80,6 @@ static NSString *const cellIdentifier = @"kCellIdentifier";
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-//    KContactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    if (!cell) {
-//        cell = [[KContactsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//    }
-    
-//    KContactsModel *contactModel = self.searchList[indexPath.row];
-//    [cell setContactModel:contactModel];
-    
     return cell;
 }
 
@@ -125,66 +112,6 @@ static NSString *const cellIdentifier = @"kCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    KContactsModel *contactsModel = _searchList[indexPath.row];
-//
-//    __block NSString *conversationId = @"";
-//
-//    [KInteractionWrapper generateConversationIdWithFromUserId:KXINIUID toUserId:contactsModel.xiniuId block:^(NSString *converId, int errorCode, NSString *errorMsg) {
-//        conversationId = converId;
-//    }];
-//    // 消息：创建会话ID
-//    NSString *toUserName = contactsModel.nickName ? contactsModel.nickName : @"";
-//    NSString *contactsId = [NSString stringWithFormat:@"%d", contactsModel.contactsId];
-//
-//    NSArray *toJsonStr = @[@{@"member_user_nickname":toUserName,
-//                             @"member_user_id":contactsModel.xiniuId,
-//                             @"member_employee_id":contactsId
-//                             }];
-//
-//    NSDictionary *tempData = @{@"create_user_id":KXINIUID,
-//                               @"create_user_name": [[KAppDefaultUtil sharedInstance] getUserName],
-//                               @"create_employee_id" : @"-1",
-//                               @"conversation_member":toJsonStr,
-//                               @"conversation_id":conversationId,
-//                               @"conversation_name":toUserName,
-//                               @"chat_type":@0
-//                               };
-//    NSMutableDictionary *conversationData = [NSMutableDictionary dictionary];
-//    [conversationData addEntriesFromDictionary:tempData];
-//
-//    kWeakSelf
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        // 本地创建会话
-//        [KInteractionWrapper localCreateConversationWithConversationJson:[tempData dictionaryTurnJson] block:^(id obj, int errorCode, NSString *errorMsg) {
-//            if (!errorCode) {
-//                KConversationModel *conversation = [KConversationModel new];
-//                conversation.conversationId      = conversationId;
-//                conversation.conversationName    = contactsModel.nickName;
-//                conversation.toUserId            = contactsModel.xiniuId;
-//                conversation.chatType            = KMessageChatTypeSingle;
-//                conversation.headImage           = contactsModel.headimage;
-//
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//
-//                    KChatViewController *chat    = [KChatViewController new];
-//                    chat.title                   = contactsModel.nickName;
-//                    chat.conversation            = conversation;
-//                    chat.toUserId                = contactsModel.xiniuId;
-//                    chat.lastMsgId               = @"0";
-//                    chat.isConversationInto      = YES;
-//                    [weakSelf.navigationBarCtrl pushViewController:chat animated:YES];
-//                });
-//            }
-//        }];
-//
-//        // 创建会话
-//        [KInteractionWrapper createConversationWithConversationData:conversationData createResult:^(NSString *conversationId, int errorCode, NSString *errorMsg)
-//        {
-//            if (errorCode) {
-//                NSLog(@"创建服务器会话失败 -> %d", errorCode);
-//            }
-//        }];
-//    });
     
 }
 
@@ -195,18 +122,6 @@ static NSString *const cellIdentifier = @"kCellIdentifier";
     NSString *searchText = searchController.searchBar.text;
     if (searchText.length > 0) {
         
-//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//            kWeakSelf
-//            [KInteractionWrapper searchContactAndConversationWithKey:searchText searchObj:0 block:^(NSArray *resultArray, int errorCode, NSString *errorMsg) {
-//                
-//                weakSelf.searchList = [resultArray mutableCopy];
-//                
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [weakSelf.listView reloadData];
-//                });
-//                
-//            }];
-//        });
     }
     else {
         [self.searchList removeAllObjects];

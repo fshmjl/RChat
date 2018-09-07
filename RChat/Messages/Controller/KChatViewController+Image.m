@@ -67,28 +67,6 @@
         if ([item isKindOfClass:[NSURL class]]) {
             
             [SVProgressHUD showImage:[UIImage imageNamed:@""] status:@"暂不支持视频功能"];
-
-//            NSURL *videoURL = item;
-//
-//            NSDictionary *opts = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
-//            AVURLAsset *urlAsset = [AVURLAsset URLAssetWithURL:videoURL options:opts];  // 初始化视频媒体文件
-//            int second = (int)urlAsset.duration.value / (int)urlAsset.duration.timescale; // 获取视频总时长,单位秒
-//
-//            // 视频url
-//            KMessageModel *messageModel    = [[KMessageModel alloc] init];
-//            messageModel.msgType           = KMessageTypeVideo;
-//            messageModel.messageChatType   = KMessageChatTypeSingle;
-//            messageModel.direction         = KMessageSenderTypeSender;
-//            messageModel.messageReadStatus = KMessageReadStatusRead;
-//
-//            messageModel.content           = videoURL;
-//            messageModel.duringTime        = second;
-//            messageModel.toUserName           = @"小米";
-//            messageModel.sendTime          = [NSDate getCurrentTimestamp];
-//            messageModel.lastMessage       = [self lastMessage];
-//            messageModel.fromUserId        = KXINIUID;
-//
-//            [self addMessage:messageModel];
             
         } else {
             
@@ -236,47 +214,7 @@
                                 cellHeight:(CGFloat)cellHeight
                                selectImage:(UIImage *)selectImage
 {
-//    向服务端发消息
-//    kWeakSelf
-     // 保存并发送消息
-//    [self saveMessageWithContent:filePath cellHeight:cellHeight messageSize:messageModel.messageSize messageType:KMessageTypeImage filePath:filePath messageModel:messageModel indexPath:indexPath saveResult:^(BOOL isSuccess, NSDictionary *jsonDic, NSString *localMsgId)
-//    {
-//        if (!isSuccess) {
-//            NSLog(@"保存本地图片消息失败");
-//            return ;
-//        }
-//
-//        NSData *imgData = [selectImage compressImageWithKilobyte:100];
-//
-//        // 向文件服务器上传文件
-////        [KInteractionWrapper uploadFileToFileServerWithData:imgData fileName:@"png" block:^(NSString *url, int errorCode, NSString *errorMsg)
-////        {
-////            if (!errorCode)
-////            {
-////                messageModel.messageSendStatus = KMessageSendStatusSending;
-////                NSMutableDictionary *msgDic = [NSMutableDictionary dictionaryWithDictionary:jsonDic];
-////                msgDic[@"msg"][@"content"] = url;
-////                NSString *jsonStr = [msgDic dictionaryTurnJson];
-////                [weakSelf sendMessageWithJsonStr:jsonStr localMessageId:localMsgId indexPath:indexPath];
-////            }
-////            else
-////            {
-////                // 更新cell视图中的发送状态
-////                [weakSelf updateMessageSendStatus:KMessageSendStatusSendFailure
-////                                        indexPath:indexPath
-////                                   localMessageId:localMsgId
-////                                     serversMsgId:localMsgId];
-////
-////                // 更新本地数据库中的消息发送状态
-////                [weakSelf updateDatabaseMessageWithSrcId:localMsgId
-////                                                  destId:localMsgId
-////                                               sendState:KMessageSendStatusSendFailure];
-////            }
-////        }];
-//    }];
-    
-    // 延时30ms执行一次
-    [NSThread sleepForTimeInterval:0.03];
+
 }
 
 @end
