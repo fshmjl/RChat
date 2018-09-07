@@ -436,6 +436,7 @@
 - (void)getConversationListWithConversationId:(NSString *)conversationId
 {
     kWeakSelf;
+    [self.dataSource removeAllObjects];
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"conversationList.plist" ofType:nil];
     NSArray *messageList = [[NSArray alloc] initWithContentsOfFile:plistPath];
     [messageList enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
