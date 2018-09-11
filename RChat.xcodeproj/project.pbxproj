@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		314C5FB361E47F93DF056927 /* libPods-RChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFE83207BA6CCF4F61C832A /* libPods-RChatTests.a */; };
 		3C010555213F718B002ACA16 /* messageList101824_143701 in Resources */ = {isa = PBXBuildFile; fileRef = 3C010554213F718B002ACA16 /* messageList101824_143701 */; };
-		3C010557213F7616002ACA16 /* messageList101829_143701 in Resources */ = {isa = PBXBuildFile; fileRef = 3C010556213F7616002ACA16 /* messageList101829_143701 */; };
-		3C010559213F763C002ACA16 /* messageList108594_143701 in Resources */ = {isa = PBXBuildFile; fileRef = 3C010558213F763C002ACA16 /* messageList108594_143701 */; };
 		3C6836BC213E6E9F0005524F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6836BB213E6E9F0005524F /* AppDelegate.m */; };
 		3C6836C2213E6E9F0005524F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6836C0213E6E9F0005524F /* Main.storyboard */; };
 		3C6836C4213E6EA00005524F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C6836C3213E6EA00005524F /* Assets.xcassets */; };
@@ -423,7 +421,7 @@
 		3C683A78213E87EB0005524F /* icon_message_voice_send_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C683A5F213E87EB0005524F /* icon_message_voice_send_2@3x.png */; };
 		3C683A79213E87EB0005524F /* receiver_message_background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C683A60213E87EB0005524F /* receiver_message_background@3x.png */; };
 		3C683A7A213E87EB0005524F /* sender_message_background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C683A61213E87EB0005524F /* sender_message_background@3x.png */; };
-		3C683A7C213E8CFD0005524F /* conversationList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C683A7B213E8CFD0005524F /* conversationList.plist */; };
+		3C7389182147997400666D81 /* conversationList in Resources */ = {isa = PBXBuildFile; fileRef = 3C7389172147997400666D81 /* conversationList */; };
 		7EFF4B9E36B392CC969C9CF6 /* libPods-RChatUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B188B7C7698DC68196C607D9 /* libPods-RChatUITests.a */; };
 		AE116678652E90D55C340A83 /* libPods-RChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B020BA5BF357E44C21FC54F6 /* libPods-RChat.a */; };
 /* End PBXBuildFile section */
@@ -447,8 +445,6 @@
 
 /* Begin PBXFileReference section */
 		3C010554213F718B002ACA16 /* messageList101824_143701 */ = {isa = PBXFileReference; lastKnownFileType = text; path = messageList101824_143701; sourceTree = "<group>"; };
-		3C010556213F7616002ACA16 /* messageList101829_143701 */ = {isa = PBXFileReference; lastKnownFileType = text; path = messageList101829_143701; sourceTree = "<group>"; };
-		3C010558213F763C002ACA16 /* messageList108594_143701 */ = {isa = PBXFileReference; lastKnownFileType = text; path = messageList108594_143701; sourceTree = "<group>"; };
 		3C6836B7213E6E9F0005524F /* RChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6836BA213E6E9F0005524F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C6836BB213E6E9F0005524F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -945,7 +941,7 @@
 		3C683A5F213E87EB0005524F /* icon_message_voice_send_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_message_voice_send_2@3x.png"; sourceTree = "<group>"; };
 		3C683A60213E87EB0005524F /* receiver_message_background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "receiver_message_background@3x.png"; sourceTree = "<group>"; };
 		3C683A61213E87EB0005524F /* sender_message_background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sender_message_background@3x.png"; sourceTree = "<group>"; };
-		3C683A7B213E8CFD0005524F /* conversationList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = conversationList.plist; sourceTree = "<group>"; };
+		3C7389172147997400666D81 /* conversationList */ = {isa = PBXFileReference; lastKnownFileType = text; path = conversationList; sourceTree = "<group>"; };
 		4DCF66DEA38D36E2DAC5A627 /* Pods-RChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RChatTests/Pods-RChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5911B48DA4C8AC3BBC9F8ECA /* Pods-RChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FFE83207BA6CCF4F61C832A /* libPods-RChatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RChatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1234,10 +1230,8 @@
 				3C683858213E6EC50005524F /* icon_message_voiceBtn@3x.png */,
 				3C683859213E6EC50005524F /* InputBoxMore.plist */,
 				3C68385A213E6EC50005524F /* normal_emoji.plist */,
-				3C683A7B213E8CFD0005524F /* conversationList.plist */,
 				3C010554213F718B002ACA16 /* messageList101824_143701 */,
-				3C010556213F7616002ACA16 /* messageList101829_143701 */,
-				3C010558213F763C002ACA16 /* messageList108594_143701 */,
+				3C7389172147997400666D81 /* conversationList */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1984,7 +1978,6 @@
 				3C683922213E6EC60005524F /* emotion_jiewu_gif.gif in Resources */,
 				3C683951213E6EC60005524F /* emotion_ouhuo.png in Resources */,
 				3C683953213E6EC60005524F /* emotion_pachong.png in Resources */,
-				3C010557213F7616002ACA16 /* messageList101829_143701 in Resources */,
 				3C6838EA213E6EC60005524F /* emotion_dengpao_gif.gif in Resources */,
 				3C683955213E6EC60005524F /* emotion_pijiu.png in Resources */,
 				3C683991213E6EC60005524F /* emotion_xiangjiao.png in Resources */,
@@ -2052,6 +2045,7 @@
 				3C683983213E6EC60005524F /* emotion_touxiao.png in Resources */,
 				3C6838BB213E6EC60005524F /* emotion_bangbangtang.png in Resources */,
 				3C6838F4213E6EC60005524F /* emotion_fadai_gif.gif in Resources */,
+				3C7389182147997400666D81 /* conversationList in Resources */,
 				3C683948213E6EC60005524F /* emotion_meigui_gif.gif in Resources */,
 				3C68395A213E6EC60005524F /* emotion_qiang_gif.gif in Resources */,
 				3C683949213E6EC60005524F /* emotion_nanguo.png in Resources */,
@@ -2069,7 +2063,6 @@
 				3C683970213E6EC60005524F /* emotion_shengli_gif.gif in Resources */,
 				3C683916213E6EC60005524F /* emotion_henai_gif.gif in Resources */,
 				3C683967213E6EC60005524F /* emotion_ruo.png in Resources */,
-				3C683A7C213E8CFD0005524F /* conversationList.plist in Resources */,
 				3C68392D213E6EC60005524F /* emotion_kelian.png in Resources */,
 				3C683958213E6EC60005524F /* emotion_pingpang_gif.gif in Resources */,
 				3C6838DF213E6EC60005524F /* emotion_dangao.png in Resources */,
@@ -2121,7 +2114,6 @@
 				3C683898213E6EC60005524F /* icon_inputBox_videoPlay_cancel@3x.png in Resources */,
 				3C683974213E6EC60005524F /* emotion_shouqiang_gif.gif in Resources */,
 				3C683901213E6EC60005524F /* emotion_fendou.png in Resources */,
-				3C010559213F763C002ACA16 /* messageList108594_143701 in Resources */,
 				3C683997213E6EC60005524F /* emotion_xigua.png in Resources */,
 				3C6838FF213E6EC60005524F /* emotion_feiwen.png in Resources */,
 				3C68390C213E6EC60005524F /* emotion_guzhang_gif.gif in Resources */,

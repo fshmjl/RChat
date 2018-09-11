@@ -277,7 +277,7 @@
     NSString *jsonStr = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
     if (!error) {
         NSArray *convMsgList = [NSArray arrayWithJsonStr:jsonStr];
-        NSLog(@"convMsgList:%@",convMsgList);
+        convMsgList = [[convMsgList reverseObjectEnumerator] allObjects];
         kWeakSelf;
         __block KMessageModel *previousMessage = nil;
         __block NSInteger num = 0;

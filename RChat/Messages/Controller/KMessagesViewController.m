@@ -8,10 +8,11 @@
 
 #import "KMessagesViewController.h"
 
+#import "NSArray+Json.h"
+#import "UIImage+Color.h"
 #import "NSDate+KCategory.h"
 #import "NSDictionary+Json.h"
 #import "UIViewController+KCategory.h"
-#import "UIImage+Color.h"
 
 #import "KEmojiGroup.h"
 #import "KMessageModel.h"
@@ -378,27 +379,32 @@
 {
     kWeakSelf;
     [self.dataSource removeAllObjects];
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"conversationList.plist" ofType:nil];
-    NSArray *messageList = [[NSArray alloc] initWithContentsOfFile:plistPath];
-    [messageList enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        KConversationModel *model = [KConversationModel new];
-        model.conversationId      = obj[@"conversation_id"];
-        model.conversationName    = obj[@"conversation_name"];
-        model.badgeNumber         = [obj[@"unread_num"] intValue];
-        model.headImage           = obj[@"head_img"];
-        model.toUserId            = obj[@"to_user_id"];
-        
-        NSDictionary *msgDic      = obj[@"msg"];
-        
-        KMessageModel *message    = [KMessageModel new];
-        message.recvTime          = msgDic[@"recv_time"];
-        message.content           = msgDic[@"content"];
-        message.msgType           = [msgDic[@"msg_type"] integerValue];
-        message.messageSendStatus = [msgDic[@"send_status"] integerValue];
-        model.message             = message;
-        [weakSelf.dataSource addObject:model];
-    }];
+    NSError *error = nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"conversationList" ofType:nil];
+    NSString *jsonStr = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    if (!error) {
+        NSArray *messageList = [NSArray arrayWithJsonStr:jsonStr];
+        [messageList enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            KConversationModel *model = [KConversationModel new];
+            model.conversationId      = obj[@"conversation_id"];
+            model.conversationName    = obj[@"conversation_name"];
+            model.badgeNumber         = [obj[@"unread_num"] intValue];
+            model.headImage           = obj[@"head_img"];
+            model.toUserId            = obj[@"to_user_id"];
+            
+            NSDictionary *msgDic      = obj[@"msg"];
+            
+            KMessageModel *message    = [KMessageModel new];
+            message.recvTime          = msgDic[@"recv_time"];
+            message.content           = msgDic[@"content"];
+            message.msgType           = [msgDic[@"msg_type"] integerValue];
+            message.messageSendStatus = [msgDic[@"send_status"] integerValue];
+            model.message             = message;
+            [weakSelf.dataSource addObject:model];
+        }];
+    }
+    
     [self updateTitle];
     [self.tableView reloadData];
 }
