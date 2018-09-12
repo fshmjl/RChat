@@ -6,8 +6,7 @@
 //  Copyright © 2018年 EIMS. All rights reserved.
 //
 
-#import "BaseBoldViewController.h"
 
-@interface KMessagesViewController : BaseBoldViewController
+@interface KMessagesViewController : UIViewController
 
 @end

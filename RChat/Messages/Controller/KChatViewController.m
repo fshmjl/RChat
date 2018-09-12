@@ -26,7 +26,6 @@
 
 #import "KTextView.h"
 #import "KFileCache.h"
-#import "KMailModel.h"
 #import "KPhotoBrowser.h"
 #import "KInputBoxView.h"
 #import "KMessageModel.h"

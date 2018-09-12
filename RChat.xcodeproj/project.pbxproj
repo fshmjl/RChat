@@ -378,14 +378,11 @@
 		3C683A07213E74FF0005524F /* NSDictionary+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A06213E74FF0005524F /* NSDictionary+Json.m */; };
 		3C683A0A213E75190005524F /* UIImage+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A08213E75190005524F /* UIImage+Compression.m */; };
 		3C683A0D213E75B30005524F /* KAppDefaultUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A0B213E75B20005524F /* KAppDefaultUtil.m */; };
-		3C683A10213E75F00005524F /* KMailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A0E213E75EF0005524F /* KMailModel.m */; };
 		3C683A13213E767E0005524F /* KMailAccountInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A11213E767D0005524F /* KMailAccountInfoModel.m */; };
 		3C683A19213E78620005524F /* KProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A18213E78620005524F /* KProgressView.m */; };
 		3C683A1C213E78EF0005524F /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A1B213E78EF0005524F /* NSString+Size.m */; };
 		3C683A1F213E79130005524F /* NSTextAttachment+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A1E213E79130005524F /* NSTextAttachment+Emoji.m */; };
 		3C683A22213E7A100005524F /* UILabel+KAutoLabelHeightAndWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A21213E7A100005524F /* UILabel+KAutoLabelHeightAndWidth.m */; };
-		3C683A26213E7A740005524F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A25213E7A740005524F /* BaseViewController.m */; };
-		3C683A29213E7B430005524F /* BaseBoldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A28213E7B430005524F /* BaseBoldViewController.m */; };
 		3C683A2C213E7BE00005524F /* UIViewController+KCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A2B213E7BDF0005524F /* UIViewController+KCategory.m */; };
 		3C683A2F213E7C490005524F /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A2D213E7C480005524F /* UIImage+Color.m */; };
 		3C683A32213E7C770005524F /* KNetworkDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C683A30213E7C760005524F /* KNetworkDetection.m */; };
@@ -422,6 +419,9 @@
 		3C683A79213E87EB0005524F /* receiver_message_background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C683A60213E87EB0005524F /* receiver_message_background@3x.png */; };
 		3C683A7A213E87EB0005524F /* sender_message_background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C683A61213E87EB0005524F /* sender_message_background@3x.png */; };
 		3C7389182147997400666D81 /* conversationList in Resources */ = {isa = PBXBuildFile; fileRef = 3C7389172147997400666D81 /* conversationList */; };
+		3CC3FFA021489E210018C080 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3FF9E21489E200018C080 /* BaseViewController.m */; };
+		3CC3FFA42148A3D80018C080 /* reviewVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3CC3FFA22148A3D70018C080 /* reviewVideo.mp4 */; };
+		3CC3FFA52148A3D80018C080 /* previewPicture.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3CC3FFA32148A3D70018C080 /* previewPicture.jpeg */; };
 		7EFF4B9E36B392CC969C9CF6 /* libPods-RChatUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B188B7C7698DC68196C607D9 /* libPods-RChatUITests.a */; };
 		AE116678652E90D55C340A83 /* libPods-RChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B020BA5BF357E44C21FC54F6 /* libPods-RChat.a */; };
 /* End PBXBuildFile section */
@@ -880,8 +880,6 @@
 		3C683A09213E75190005524F /* UIImage+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Compression.h"; sourceTree = "<group>"; };
 		3C683A0B213E75B20005524F /* KAppDefaultUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KAppDefaultUtil.m; sourceTree = "<group>"; };
 		3C683A0C213E75B30005524F /* KAppDefaultUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAppDefaultUtil.h; sourceTree = "<group>"; };
-		3C683A0E213E75EF0005524F /* KMailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMailModel.m; sourceTree = "<group>"; };
-		3C683A0F213E75F00005524F /* KMailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMailModel.h; sourceTree = "<group>"; };
 		3C683A11213E767D0005524F /* KMailAccountInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMailAccountInfoModel.m; sourceTree = "<group>"; };
 		3C683A12213E767E0005524F /* KMailAccountInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMailAccountInfoModel.h; sourceTree = "<group>"; };
 		3C683A17213E78620005524F /* KProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KProgressView.h; sourceTree = "<group>"; };
@@ -892,10 +890,6 @@
 		3C683A1E213E79130005524F /* NSTextAttachment+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextAttachment+Emoji.m"; sourceTree = "<group>"; };
 		3C683A20213E7A100005524F /* UILabel+KAutoLabelHeightAndWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+KAutoLabelHeightAndWidth.h"; sourceTree = "<group>"; };
 		3C683A21213E7A100005524F /* UILabel+KAutoLabelHeightAndWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+KAutoLabelHeightAndWidth.m"; sourceTree = "<group>"; };
-		3C683A24213E7A740005524F /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		3C683A25213E7A740005524F /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		3C683A27213E7B430005524F /* BaseBoldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseBoldViewController.h; sourceTree = "<group>"; };
-		3C683A28213E7B430005524F /* BaseBoldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseBoldViewController.m; sourceTree = "<group>"; };
 		3C683A2A213E7BDF0005524F /* UIViewController+KCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KCategory.h"; sourceTree = "<group>"; };
 		3C683A2B213E7BDF0005524F /* UIViewController+KCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KCategory.m"; sourceTree = "<group>"; };
 		3C683A2D213E7C480005524F /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
@@ -942,6 +936,10 @@
 		3C683A60213E87EB0005524F /* receiver_message_background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "receiver_message_background@3x.png"; sourceTree = "<group>"; };
 		3C683A61213E87EB0005524F /* sender_message_background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sender_message_background@3x.png"; sourceTree = "<group>"; };
 		3C7389172147997400666D81 /* conversationList */ = {isa = PBXFileReference; lastKnownFileType = text; path = conversationList; sourceTree = "<group>"; };
+		3CC3FF9E21489E200018C080 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		3CC3FF9F21489E210018C080 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		3CC3FFA22148A3D70018C080 /* reviewVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = reviewVideo.mp4; sourceTree = "<group>"; };
+		3CC3FFA32148A3D70018C080 /* previewPicture.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = previewPicture.jpeg; sourceTree = "<group>"; };
 		4DCF66DEA38D36E2DAC5A627 /* Pods-RChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RChatTests/Pods-RChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5911B48DA4C8AC3BBC9F8ECA /* Pods-RChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RChatUITests/Pods-RChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FFE83207BA6CCF4F61C832A /* libPods-RChatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RChatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1064,6 +1062,7 @@
 		3C6836EC213E6EC50005524F /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				3CC3FFA12148A3B40018C080 /* Resource */,
 				3C683A23213E7A5E0005524F /* Common */,
 				3C6839FB213E73940005524F /* Category */,
 				3C6839F7213E714B0005524F /* Utils */,
@@ -1230,8 +1229,6 @@
 				3C683858213E6EC50005524F /* icon_message_voiceBtn@3x.png */,
 				3C683859213E6EC50005524F /* InputBoxMore.plist */,
 				3C68385A213E6EC50005524F /* normal_emoji.plist */,
-				3C010554213F718B002ACA16 /* messageList101824_143701 */,
-				3C7389172147997400666D81 /* conversationList */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1571,8 +1568,6 @@
 				3C68387E213E6EC60005524F /* KConversationModel.m */,
 				3C68387F213E6EC60005524F /* KMessageModel.h */,
 				3C683880213E6EC60005524F /* KMessageModel.m */,
-				3C683A0F213E75F00005524F /* KMailModel.h */,
-				3C683A0E213E75EF0005524F /* KMailModel.m */,
 				3C683A12213E767E0005524F /* KMailAccountInfoModel.h */,
 				3C683A11213E767D0005524F /* KMailAccountInfoModel.m */,
 				3C683881213E6EC60005524F /* KPhotoPreviewModel.h */,
@@ -1656,10 +1651,8 @@
 		3C683A23213E7A5E0005524F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				3C683A24213E7A740005524F /* BaseViewController.h */,
-				3C683A25213E7A740005524F /* BaseViewController.m */,
-				3C683A27213E7B430005524F /* BaseBoldViewController.h */,
-				3C683A28213E7B430005524F /* BaseBoldViewController.m */,
+				3CC3FF9F21489E210018C080 /* BaseViewController.h */,
+				3CC3FF9E21489E200018C080 /* BaseViewController.m */,
 				3C683A33213E7D510005524F /* KFileManagement.h */,
 				3C683A34213E7D520005524F /* KFileManagement.m */,
 				3C683A37213E7DB50005524F /* KSystemAuthorization.h */,
@@ -1700,6 +1693,17 @@
 				3C683A61213E87EB0005524F /* sender_message_background@3x.png */,
 			);
 			path = MessageIcon;
+			sourceTree = "<group>";
+		};
+		3CC3FFA12148A3B40018C080 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3C010554213F718B002ACA16 /* messageList101824_143701 */,
+				3C7389172147997400666D81 /* conversationList */,
+				3CC3FFA22148A3D70018C080 /* reviewVideo.mp4 */,
+				3CC3FFA32148A3D70018C080 /* previewPicture.jpeg */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1834,6 +1838,7 @@
 				3C6839A6213E6EC60005524F /* emotion_youchexiang_gif.gif in Resources */,
 				3C6838EE213E6EC60005524F /* emotion_diaoxie_gif.gif in Resources */,
 				3C6838CE213E6EC60005524F /* emotion_cahan_gif.gif in Resources */,
+				3CC3FFA42148A3D80018C080 /* reviewVideo.mp4 in Resources */,
 				3C683976213E6EC60005524F /* emotion_shuai_gif.gif in Resources */,
 				3C6839CF213E6EC60005524F /* icon_inputBox_more_take_video@3x.png in Resources */,
 				3C6838B6213E6EC60005524F /* emotion_aixin_gif.gif in Resources */,
@@ -1971,6 +1976,7 @@
 				3C6838F3213E6EC60005524F /* emotion_fadai.png in Resources */,
 				3C683969213E6EC60005524F /* emotion_se.png in Resources */,
 				3C6839D0213E6EC60005524F /* icon_inputBox_more_takeVideo_back@3x.png in Resources */,
+				3CC3FFA52148A3D80018C080 /* previewPicture.jpeg in Resources */,
 				3C6838D1213E6EC60005524F /* emotion_caiqiu.png in Resources */,
 				3C6839AB213E6EC60005524F /* emotion_youtaiji.png in Resources */,
 				3C683982213E6EC60005524F /* emotion_tiaotiao_gif.gif in Resources */,
@@ -2252,7 +2258,6 @@
 				3C6839F4213E6EC60005524F /* KChatVoiceTableViewCell.m in Sources */,
 				3C68389B213E6EC60005524F /* FSActionSheetCell.m in Sources */,
 				3C6839EA213E6EC60005524F /* KVideoProgressView.m in Sources */,
-				3C683A10213E75F00005524F /* KMailModel.m in Sources */,
 				3C683893213E6EC60005524F /* KPhoto.m in Sources */,
 				3C6838A9213E6EC60005524F /* KSearchMessageViewController.m in Sources */,
 				3C6839F1213E6EC60005524F /* KChatTableViewCell.m in Sources */,
@@ -2277,7 +2282,6 @@
 				3C6839E1213E6EC60005524F /* KInputBoxMoreItemView.m in Sources */,
 				3C683A04213E74E10005524F /* NSDate+KCategory.m in Sources */,
 				3C683A0D213E75B30005524F /* KAppDefaultUtil.m in Sources */,
-				3C683A29213E7B430005524F /* BaseBoldViewController.m in Sources */,
 				3C6839E7213E6EC60005524F /* KPlayer.m in Sources */,
 				3C6838A8213E6EC60005524F /* KMessagesViewController.m in Sources */,
 				3C6839DF213E6EC60005524F /* KInputBoxEmojiMenuView.m in Sources */,
@@ -2319,8 +2323,8 @@
 				3C6838A6213E6EC60005524F /* KChatViewController+Voice.m in Sources */,
 				3C683A38213E7DB50005524F /* KSystemAuthorization.m in Sources */,
 				3C6836BC213E6E9F0005524F /* AppDelegate.m in Sources */,
+				3CC3FFA021489E210018C080 /* BaseViewController.m in Sources */,
 				3C68389D213E6EC60005524F /* FSActionSheetItem.m in Sources */,
-				3C683A26213E7A740005524F /* BaseViewController.m in Sources */,
 				3C6839E9213E6EC60005524F /* KTextView.m in Sources */,
 				3C6839E6213E6EC60005524F /* KInputBoxViewCtrl.m in Sources */,
 				3C6838A7213E6EC60005524F /* KChatViewController.m in Sources */,

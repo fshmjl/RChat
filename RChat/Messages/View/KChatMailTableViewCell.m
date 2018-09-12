@@ -8,8 +8,6 @@
 
 #import "KChatMailTableViewCell.h"
 
-
-#import "KMailModel.h"
 #import "KMessageModel.h"
 
 @interface KChatMailTableViewCell()
